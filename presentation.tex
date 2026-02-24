@@ -40,15 +40,23 @@
 \end{frame}
 }
 
+
+
 \begin{frame}[fragile]
   \frametitle{Introduction}
   \begin{itemize}
-    \item Spla is a sparse linear algebra library that uses OpenCL
-    \item Our goal is to run this library on Vortex and conduct experiments
-    \item In the RTL design, support for extension RISC-V A was missing
-    \item Support for these operations was added in PoCL
-    \item Our solution is not optimal, as our goal was simply to make it work and be able to run SPLA on an FPGA
-    \item A solution was developed that is currently under active development
+    \item \focus{Spla}: sparse-linear-algebra-based graph analysis library that uses OpenCL
+    \item Our \focus{goal}: to run Spla on Vortex and conduct experiments
+    \item Linear algebra kernels heavily rely on atomic operations
+    \begin{itemize}
+      \item[\faCheck] Support for atomics has been added in PoCL
+      \item[\faFrownO] In the RTL design, support for extension RISC-V A was missing
+    \end{itemize}
+    \item We have implemented atomic operation support in RTL
+    \begin{itemize}
+      \item[\faExclamation] Designed to enable experiments on FPGA, not to achieve optimal performance
+      \item[\faGears] The implementation is currently under active development
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
