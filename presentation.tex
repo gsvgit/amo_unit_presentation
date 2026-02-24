@@ -43,8 +43,11 @@
 \begin{frame}[fragile]
   \frametitle{Introduction}
   \begin{itemize}
+    \item Spla is a sparse linear algebra library that uses OpenCL
+    \item Our goal is to run this library on Vortex and conduct experiments
     \item In the RTL design, support for extension RISC-V A was missing
     \item Support for these operations was added in PoCL
+    \item Our solution is not optimal, as our goal was simply to make it work and be able to run SPLA on an FPGA
     \item A solution was developed that is currently under active development
   \end{itemize}
 \end{frame}
@@ -53,6 +56,7 @@
   \frametitle{Memory Lock Arbiters}
   \begin{itemize}
     \item The memory was divided into regions, each of which was assigned an arbiter
+    \item The arbiters for global memory are located at the topmost level
     \item When one of the LSUs needs to perform an atomic operation in a region, the arbiter grants permission in a round-robin order
     \item The same arbiters are implemented for local memory if the core has more than one LSU
     \item The number of regions is configurable
@@ -70,6 +74,7 @@
   \frametitle{Atomic Unit}
   \begin{itemize}
     \item Placed in the LSU
+    \item The AMO unit is connected to the arbiters via a bus that allows the unit to request a lock and the arbiters to grant it
     \item It is a finite state machine with 9 states
     \item States
     \begin{itemize}
@@ -89,9 +94,9 @@
 \begin{frame}
   \frametitle{Optimization 1[WIP]}
   \begin{itemize}
-    \item Memory banks are processed sequentially.
-    \item This makes it possible to complete all operations with fewer lock requests.
-    \item It also requires entering the FENCE state less often.
+    \item Memory banks are processed sequentially
+    \item This makes it possible to complete all operations with fewer lock requests
+    \item It also requires entering the FENCE state less often
   \end{itemize}
 \end{frame}
 
