@@ -74,7 +74,7 @@
 \begin{frame}
   \frametitle{Memory Lock Arbiters}
   \begin{center}
-  \includegraphics[width=0.8\textwidth]{pictures/arbiters.pdf}
+  \includegraphics[width=0.45\textwidth]{pictures/amounit2.pdf}
   \end{center}
 \end{frame}
 
@@ -124,6 +124,20 @@
     \item The LR instruction is implemented as a read operation with a lock request
     \item The SC instruction is implemented as a write operation with a lock request
     \item Three register arrays of size SIMD\_WIDTH are used to track the reservation: reservation validity, address, and data
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Links}
+  \begin{itemize}
+    \item Atomic Unit: \url{https://github.com/talubik/vortex/tree/amo_unit_rtl}
+    \item Atomic operations in PoCL: \url{https://github.com/vortexgpgpu/pocl/commit/70db40e299b7a8e4a7e3897339621030f626bb48}
+    \item SPLA: \url{https://github.com/SparseLinearAlgebra/spla}
+  \end{itemize}
+  Other Pull Requests:
+  \begin{itemize}
+    \item CopyBuff operation support: \url{https://github.com/vortexgpgpu/vortex/pull/310}
+    \item VX Spawn Fix: \url{https://github.com/vortexgpgpu/vortex/pull/321}
   \end{itemize}
 \end{frame}
 
