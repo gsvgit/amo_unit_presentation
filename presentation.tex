@@ -45,7 +45,7 @@
 \begin{frame}[fragile]
   \frametitle{Introduction}
   \begin{itemize}
-    \item \focus{Spla}: sparse-linear-algebra-based graph analysis library that uses OpenCL
+    \item \focus{\href{https://github.com/SparseLinearAlgebra/spla}{Spla}}: sparse-linear-algebra-based graph analysis library that uses OpenCL
     \item Our \focus{goal}: to run Spla on Vortex and conduct experiments
     \item Linear algebra kernels heavily rely on atomic operations
     \begin{itemize}
@@ -128,13 +128,27 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Links}
+  \frametitle{Conclustion}
   \begin{itemize}
-    \item Atomic Unit: \url{https://github.com/talubik/vortex/tree/amo_unit_rtl}
-    \item Atomic operations in PoCL: \url{https://github.com/vortexgpgpu/pocl/commit/70db40e299b7a8e4a7e3897339621030f626bb48}
-    \item SPLA: \url{https://github.com/SparseLinearAlgebra/spla}
+    \item Our implementation
+    \begin{itemize}
+      \item Atomic Unit: \url{https://github.com/talubik/vortex/tree/amo_unit_rtl}
+      \item Atomic operations in PoCL: \url{https://github.com/vortexgpgpu/pocl/commit/70db40e299b7a8e4a7e3897339621030f626bb48}
+    \end{itemize}
+    \item Future work
+    \begin{itemize}
+      \item Implement basic improvements
+      \item Run Spla in RTL simulation and on FPGA
+      \item Compare our atomics with \href{https://github.com/Vaibhav110/Vortex_gpgpu_atomicity/commits/master/}{baseline}
+      \item What about \href{https://ieeexplore.ieee.org/document/10764542}{``Atomic Cache: Enabling Efficient Fine-Grained Synchronization with Relaxed Memory Consistency on GPGPUs through In-Cache Atomic Operations''}?
+    \end{itemize}
   \end{itemize}
-  Other Pull Requests:
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Other Links}
+  Our Pull Requests with various fixes for Vortex:
   \begin{itemize}
     \item CopyBuff operation support: \url{https://github.com/vortexgpgpu/vortex/pull/310}
     \item VX Spawn Fix: \url{https://github.com/vortexgpgpu/vortex/pull/321}
