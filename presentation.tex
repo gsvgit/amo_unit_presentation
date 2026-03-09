@@ -74,7 +74,7 @@
 \begin{frame}
   \frametitle{Memory Lock Arbiters}
   \begin{center}
-  \includegraphics[width=0.45\textwidth]{pictures/amounit2.pdf}
+  \includegraphics[width=0.45\textwidth]{pictures/amounit.pdf}
   \end{center}
 \end{frame}
 
@@ -123,7 +123,7 @@
     \item LR/SC instructions are implemented using the same atomic unit
     \item The LR instruction is implemented as a read operation with a lock request
     \item The SC instruction is implemented as a write operation with a lock request
-    \item Three register arrays of size SIMD\_WIDTH are used to track the reservation: reservation validity, address, and data
+    \item Two register arrays of size $WARPS\_PER\_LSU \ast NUM\_THREADS$ are used to track the reservation: reservation address and data
   \end{itemize}
 \end{frame}
 
